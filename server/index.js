@@ -9,7 +9,7 @@ dotenv.config();    //  Permite acceder a las variables definidas en un archivo 
 const app = express();  // Se crea una instancia del seervidor express
 app.use(express.json());    // Permite a Express procesar JSON.
 
-app.use("/api/products", productRoutes)
+app.use("/api/products", productRoutes);
 
 
 app.listen(5000,()=>{
