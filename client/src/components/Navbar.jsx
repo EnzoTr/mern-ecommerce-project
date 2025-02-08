@@ -1,4 +1,4 @@
-import { Container, Flex, Text, Link, HStack, Button, Icon } from '@chakra-ui/react';
+import { Container, Flex, Text, Link, HStack, Button, Icon, Span } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   ColorModeButton,
@@ -35,7 +35,7 @@ function Navbar() {
             textAlign={'center'}
             color={'orange.600'}
             >
-              STORE
+              STORE <Span outline={'full'}>TEC</Span>
             </Text>
             <HStack gap={2} alignItems={'center'}>
               <Button variant={'ghost'} rounded={'full'} as={RouterLink} to={'/create'}>

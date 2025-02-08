@@ -2,6 +2,8 @@ import { Container, VStack, Text, SimpleGrid } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { useProductStore } from '../store/product';
 import ProductCard from '../components/ProductCard';
+import { Toaster, toaster } from "../components/ui/toaster"
+
 
 function HomePage() {
   const {fetchProducts, products} = useProductStore();
@@ -12,13 +14,14 @@ function HomePage() {
   console.log('products', products)
 
   return (
-    <Container maxW={'Container.x1'} mt={8}>
+    <Container maxW={'Container.x1'} mt={8} mb={10}>
       <VStack gap={8}>
         <Text
           fontSize={30}
           fontWeight={'bold'}
           color={'orange.600'}
           textAlign={'center'}
+          mb={'1em'}
         >
           Products
         </Text>
@@ -26,8 +29,8 @@ function HomePage() {
         <SimpleGrid
           columns={{
             base: 1,
-            md: 2,
-            lg: 3,
+            md: 3,
+            lg: 4,
           }}
           gap={10}
           w={'full'}
@@ -37,9 +40,12 @@ function HomePage() {
           ))}
         </SimpleGrid>
 
-        <Text fontSize={'x1'} textAlign={'center'} fontWeight={'bold'} color={'gray.500'}>
+        {products.length === 0 && (
+          <Text fontSize={'x1'} textAlign={'center'} fontWeight={'bold'} color={'gray.500'}>
           No products found ☹️
-        </Text>
+          </Text>
+        )}
+        
       </VStack>
     </Container>
   )
