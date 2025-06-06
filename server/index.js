@@ -14,6 +14,11 @@ app.use(express.json());    // Permite a Express procesar JSON.
 app.use("/api/products", productRoutes);
 
 
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
+
 
 // start server
 const startServer = async () => {
