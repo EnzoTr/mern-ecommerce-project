@@ -14,7 +14,7 @@ export const useProductStore = create((set)=>({
             return {success:false, message:'Please fill all the fields'}
         }
         // Enviar producto a la BD mediante metodo POST
-        const res = await fetch("http://localhost:5000/api/products",{  // res guarda la respuesta de la solicitud HTTP
+        const res = await fetch("https://mern-ecommerce-project-i8vz.onrender.com/api/products",{  // res guarda la respuesta de la solicitud HTTP
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', // Le especifica al servidor que los datos son formato JSON
@@ -27,13 +27,13 @@ export const useProductStore = create((set)=>({
     },
 
     fetchProducts: async() => {
-        const res = await fetch("http://localhost:5000/api/products");  // Peticion GET por default
+        const res = await fetch("https://mern-ecommerce-project-i8vz.onrender.com/api/products");  // Peticion GET por default
         const data = await res.json();  // Convierte la response en JSON y se guarda en 'data'
         set({products: data.data});
     },
 
     deleteProduct: async(pid) => {
-        const res = await fetch("http://localhost:5000/api/products/" + pid, {
+        const res = await fetch("https://mern-ecommerce-project-i8vz.onrender.com/api/products/" + pid, {
             method: 'DELETE',
         });
         const data = await res.json();
@@ -45,7 +45,7 @@ export const useProductStore = create((set)=>({
     },
 
     updateProduct: async (pid, updatedProduct) =>{
-        const res = await fetch("http://localhost:5000/api/products/" + pid, {
+        const res = await fetch("https://mern-ecommerce-project-i8vz.onrender.com/api/products/" + pid, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
