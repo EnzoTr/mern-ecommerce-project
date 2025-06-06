@@ -18,7 +18,7 @@ import { Toaster, toaster } from "../components/ui/toaster"
 
 function ProductCard({product}) {
     const textColor = useColorModeValue('gray.600','gray.200');
-    const {deleteProduct, updateProduct} = useProductStore();
+    const {deleteProduct, updateProduct} = useProductStore(); // Importa las funciones para actualizar y eliminar
     const [updatedProduct, setUpdatedProduct] = useState(product);  
     const handleDeleteProduct = async (pid) =>{
       const {success, message} = await deleteProduct(pid);

@@ -28,7 +28,7 @@ export const addProduct = async (req, res) => {
 
     try{
         await newProduct.save(); // Guarda producto en la BD.
-        res.status(201).json({success: true, data: newProduct})
+        res.status(201).json({success: true, data: newProduct}) // La respuesta al cliente contiene el producto en formato JSON
     }catch (e){
         console.error('Error creating new Product: ' + e.message);
         res.status(500).json({success: false, message:'Server Error: ' + e.message});

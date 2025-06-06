@@ -13,8 +13,8 @@ import { FaMoon } from "react-icons/fa";
 import React from 'react'
 
 function Navbar() {
-  const {colorMode, toggleColorMode} = useColorMode();
-  const ThemeIcon = useColorModeValue(IoSunny, FaMoon);
+  const {colorMode, toggleColorMode} = useColorMode();  // Desde Chakra UI
+  const ThemeIcon = useColorModeValue(IoSunny, FaMoon); // La funcion useColorModeValue define dos estados, el primer parametro (IoSunny) sera en caso de modo claro, el segundo en caso (FaMoon) de modo oscuro.
 
   return (
     <Container w={'90%'} maxW={"1920"} px={4} mt={4}>
@@ -23,12 +23,13 @@ function Navbar() {
         alignItems={"center"}
         justifyContent={"space-between"}
         flexDir={{
-            base:"column",
+            base:"row",
             sm:"row"
         }}
         >
             <Text
-            as={RouterLink}
+            // Usaremos el texto como un router link que sera dirigido a "/"
+            as={RouterLink} 
             to={'/'}
             fontSize={{base:22, sm:28}}
             fontWeight={'900'}
